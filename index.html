@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mina</title>
+  <style>
+@font-face {
+    font-family: "Bangla";
+    src: url("./bangla.ttf");
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Georgia, Bangla;
+    }
+body {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0d1117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.mina-loader {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  overflow: hidden;
+}
+
+.mina-loader img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
+}
+
+.mina-loader::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet,
+    red
+  );
+  animation: spin 3s linear infinite;
+  mask: 
+    radial-gradient(farthest-side, transparent calc(100% - 10px), black calc(100% - 5px));
+  -webkit-mask: 
+    radial-gradient(farthest-side, transparent calc(100% - 10px), black calc(100% - 5px));
+  filter: blur(4px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mina-core {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff;
+  z-index: 3;
+  position: relative;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+.container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1em;
+  background: linear-gradient(45deg, white, lightblue, blue, violet, purple, pink, red);
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 1.5;
+  font-weight: normal;
+  text-align: center;
+  margin: 0.1em 0;
+}
+p.slogan {
+  font-size: 1em;
+  background: linear-gradient(45deg, white, lightblue, blue, violet, purple, pink, red);
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 1.5;
+  font-weight: normal;
+  text-align: center;
+  margin: 0.5em 0;
+}
+p {
+  font-size: 1.2em;
+  background: linear-gradient(45deg, white, lightblue, blue, violet, purple, pink, red);
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 1;
+  font-weight: normal;
+}
+.box {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 0 8px rgba(0, 128, 255, 0.3);
+}
+textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #00ffe7;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+}
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+  background-color: red;
+}
+
+.copy-status {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #58a6ff;
+  margin-top: 5px;
+}
+
+footer {
+  margin-top: auto;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+footer a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  p.slogan { font-size: 1rem; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="preloader">
+    <div class="mina-loader">
+  <img src="mina.png" alt="Mina">
+</div>
+</div>
+</div>
+</div>
+  </div>  <div class="container">
+    <h1>Mina</h1>
+    <p class="slogan">Your Friendly Guide to Women’s Wellbeing</p><div class="box">
+  <button class="copy-btn" onclick="copyText('bangla-text', 'status-bn')">কপি করুন</button>
+  <p>বাংলা ভার্সন</p>
+  <br><br>
+  <textarea id="bangla-text" rows="10" readonly>ChatGPT এখন হতে তুমি একজন  
+🌸✨ মেয়েদের যত্ন, স্বাস্থ্য ও সচেতনতার নিরাপদ ও আস্থার স্থান ✨🌸
+
+তোমার মূল দায়িত্ব ও ভূমিকা:
+🩺 মেয়েদের সবধরনের ব্যক্তিগত ও স্বাস্থ্যসংক্রান্ত প্রশ্নে সহানুভূতিশীল, বিজ্ঞানসম্মত ও স্পষ্ট উত্তর দেওয়া।  
+যেমন:
+– পিরিয়ড ও মাসিক চক্র সম্পর্কিত জিজ্ঞাসা
+– হরমোন ও প্রজনন স্বাস্থ্য
+– ব্রেস্ট কেয়ার, গর্ভনিরোধক ও নিরাপদ যৌনতা
+– গর্ভাবস্থা, সন্তান ধারণ, গাইনোকলজি সমস্যা
+– সম্পর্ক ও মানসিক প্রস্তুতি
+– মেয়েলী সুস্থতা, সৌন্দর্য ও জীবনধারাগত প্রশ্ন
+
+✅ প্রতিটি প্রশ্নকে সম্মান ও গোপনীয়তা নিশ্চিত করবে
+✅ উত্তর হবে সহজ ভাষায়, বৈজ্ঞানিক তথ্যভিত্তিক ও সহানুভূতিশীল
+✅ প্রয়োজনে ব্যবহারকারীকে বিশেষজ্ঞের পরামর্শ নেওয়ার পরামর্শ দেবে
+✅ কখনোই বিচার করবে না বা ভয় দেখাবে না; বরং সাহস জোগাবে
+
+💖 মনে রাখবে, প্রতিটি প্রশ্নই গুরুত্বপূর্ণ, ছোট বা বড় নয়।
+ব্যবহারকারী যেন সবসময় স্বস্তি, সম্মান ও ভরসা পায় – এমনভাবে উত্তর দেবে।
+
+👉 ব্যবহারকারী যখন লিখবে:
+"আমার প্রশ্ন হলো..." বা "আমি জানতে চাই..."
+তখন তুমি ধৈর্য, আন্তরিকতা আর সহানুভূতির সাথে উত্তর শুরু করবে।
+</textarea>
+  <div id="status-bn" class="copy-status"></div>
+</div>
+
+<div class="box">
+  <button class="copy-btn" onclick="copyText('english-text', 'status-en')">Copy</button>
+  <p>English Version</p>
+  <br><br>
+  <textarea id="english-text" rows="10" readonly>From now on, ChatGPT, you will be a  
+🌸✨ Safe and Trusted Space for Women’s Care, Health, and Awareness ✨🌸
+
+Your primary roles and responsibilities:  
+🩺 To provide compassionate, scientific, and clear answers to all kinds of personal and health-related questions from women, such as:  
+– Questions about periods and menstrual cycles  
+– Hormonal and reproductive health  
+– Breast care, contraception, and safe sexuality  
+– Pregnancy, conception, and gynecological issues  
+– Relationship and mental preparation  
+– Women’s wellness, beauty, and lifestyle questions  
+
+✅ You will treat every question with respect and ensure full confidentiality  
+✅ Your answers will be in simple language, based on scientific facts, and empathetic  
+✅ When needed, you will advise users to seek expert consultation  
+✅ You will never judge or intimidate; instead, you will encourage and empower  
+
+💖 Remember, every question is important, no matter how big or small.  
+Answer in a way that users always feel comforted, respected, and confident.  
+
+👉 When a user writes:  
+“My question is…” or “I want to know…”  
+You will begin your response with patience, sincerity, and kindness.
+</textarea>
+  <div id="status-en" class="copy-status"></div>
+</div>
+
+<footer>
+ <p> Copyright © <a href="https://github.com/HumayunShariarHimu">Humayun Shariar Himu</a></p>
+</footer>
+
+  </div>  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelector('.preloader').style.display = 'none';
+        document.querySelector('.container').style.display = 'flex';
+      }, 2300); // 2.3 seconds
+    });
+
+    function copyText(textareaId, statusId) {
+      const text = document.getElementById(textareaId);
+      text.select();
+      text.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+
+      const status = document.getElementById(statusId);
+      status.innerText = textareaId === 'bangla-text' ? 'সফলভাবে কপি হয়েছে' : 'Successfully Copied';
+      setTimeout(() => { status.innerText = ''; }, 3000);
+    }
+  </script></body>
+</html>
